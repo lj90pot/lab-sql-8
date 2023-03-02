@@ -59,3 +59,16 @@ GROUP BY c.first_name ,	c.last_name
 ORDER BY num_rentals desc
 limit 1
 ;
+
+#Bonus
+select
+	f.title
+    ,count(r.rental_id) as 'num_rentals'
+from film f
+	inner join inventory i on f.film_id=i.film_id
+    inner join rental r on i.inventory_id=r.inventory_id
+group by title
+order by num_rentals desc
+limit 1
+;
+select * from rental;
